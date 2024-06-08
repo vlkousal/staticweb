@@ -33,17 +33,17 @@ body {
 
 .time-container {
     position: absolute; /* Set position to relative */
-    margin-left: 95%;
+    margin-left: 96%;
 
-    border-right: #ffffff solid 2px;
-    border-bottom: #ffffff solid 2px;
-    border-top: #7e7e7e solid 1px;
-    border-left: #7e7e7e solid 1px;
+    border-right: #ffffff 2px solid;
+    border-bottom: #ffffff 2px solid;
+    border-top: #7e7e7e 1px solid;
+    border-left: #7e7e7e 1px solid;
 
-    top: 50%; /* Move the container 50% down */
-    transform: translateY(-50%); /* Center the container vertically */
+    top: 50%;
+    transform: translateY(-50%);
     background-color: #c0c0c0;
-    padding: 10px;
+    padding: 8px;
     text-align: right;
     border-radius: 5px;
 
@@ -65,4 +65,66 @@ body {
 
     font-size: 16px;
     cursor: url('cursors/hand.png'), default;
+}
+
+
+
+
+
+.windows-95-window {
+    width: 650px;
+    height: 680px;
+    max-width: 100%;
+    background-color: #c0c0c0;
+    border: 2px solid #fcfdff;
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px #000;
+    position: relative;
+
+    margin-left: 40%;
+    margin-top: 10%;
+}
+
+.title-bar {
+    background-color: #010082;
+    color: #fff;
+    padding: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    cursor: url('cursors/arrow.png'), default;
+}
+
+.window-title {
+    flex-grow: 1;
+}
+
+.window-buttons {
+    display: flex;
+}
+
+.window-button {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    border: 1px solid #fff;
+    cursor: url('cursors/hand.png'), default;
+}
+
+.window-button-close {
+    cursor: url('cursors/hand.png'), default;
+}
+
+.window-button:hover {
+    background-color: #ff0000;
+}
+
+.close {
+    background-color: #bec3c7;
+}
+
+.content {
+    padding: 10px;
 }
