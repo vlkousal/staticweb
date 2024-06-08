@@ -37,7 +37,7 @@ body {
 
 .time-container {
     position: absolute; /* Set position to relative */
-    margin-left: 96%;
+    margin-left: 94%;
 
     border-right: #ffffff 2px solid;
     border-bottom: #ffffff 2px solid;
