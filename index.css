@@ -5,6 +5,10 @@
     url('font/W95FA.otf') format('truetype');
 }
 
+html {
+    cursor: url('cursors/arrow.png'), auto;
+}
+
 body {
     background-color: #007f82;
     font-family: 'win95', sans-serif;
@@ -115,6 +119,7 @@ body {
 
 .window-button-close {
     cursor: url('cursors/hand.png'), default;
+    font-weight: bold;
 }
 
 .window-button:hover {
