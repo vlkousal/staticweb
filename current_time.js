@@ -17,5 +17,4 @@ function updateTime() {
 }
 
 updateTime();
-console.log(":)");
 setInterval(updateTime, 1000);
