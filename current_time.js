@@ -13,7 +13,6 @@ function updateTime() {
 	const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
 
 	timeContainer.textContent = `${hours}:${formattedMinutes} ${ampm}`;
-	console.log(hours + ':' + formattedMinutes + " " + ampm);
 }
 
 updateTime();
