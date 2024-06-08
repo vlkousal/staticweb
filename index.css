@@ -1,0 +1,68 @@
+@font-face {
+    font-family: 'win95';
+    src: url('font/w95fa.woff2') format('woff2'),
+    url('font/w95fa.woff') format('woff'),
+    url('font/W95FA.otf') format('truetype');
+}
+
+body {
+    background-color: #007f82;
+    font-family: 'win95', sans-serif;
+    margin: 0;
+
+    cursor: url('cursors/arrow.png'), auto;
+
+    /* this makes text non-highlightable */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+}
+
+.bottom-panel {
+    border: #d0d8d8 solid 2px;
+    border-bottom: #0c0c0c 1px solid;
+    position: fixed;
+    background: #c0c0c0;
+    width: 100%;
+    height: 40px;
+    line-height: 100%;
+    bottom: 0;
+    cursor: url('cursors/arrow.png'), default;
+}
+
+.time-container {
+    position: absolute; /* Set position to relative */
+    margin-left: 95%;
+
+    border-right: #ffffff solid 2px;
+    border-bottom: #ffffff solid 2px;
+    border-top: #7e7e7e solid 1px;
+    border-left: #7e7e7e solid 1px;
+
+    top: 50%; /* Move the container 50% down */
+    transform: translateY(-50%); /* Center the container vertically */
+    background-color: #c0c0c0;
+    padding: 10px;
+    text-align: right;
+    border-radius: 5px;
+
+    font-weight: bold;
+}
+
+.start-button {
+    font-family: 'win95', sans-serif;
+    text-align: right;
+    font-weight: bold;
+    height: 35px;
+    width: 3%;
+
+    margin-top: 3px;
+    margin-left: 5px;
+
+    border-right: #0c0c0c 2px solid;
+    border-bottom: #0c0c0c 2px solid;
+
+    font-size: 16px;
+    cursor: url('cursors/hand.png'), default;
+}

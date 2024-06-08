@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
 	    <meta charset="UTF-8">
 	    <title>Welcome</title>
+		<link rel="stylesheet" href="index.css">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 	<body>
+
 		<div style="text-align: center;">
 	        <h1>Alone at the edge of the universe...</h1>
 	        <img src="me.jpg" alt="literally me">
 		</div>
 
+		<div class="bottom-panel">
+			<button class="start-button">Start</button>
+			<div class="time-container" id="time-container">:) dobry den prosim</div>
+			<script src="current_time.js"></script>
+		</div>
 
 		<!-- Google tag (gtag.js) -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7QZS1W0VF"></script>
@@ -17,7 +27,7 @@
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
 			gtag('js', new Date());
-	
+
 			gtag('config', 'G-Q7QZS1W0VF');
 		</script>
 	</body>
