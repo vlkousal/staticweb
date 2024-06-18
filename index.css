@@ -81,6 +81,11 @@ body {
     display: block;
 }
 
+.gosling {
+    max-height: 50%;
+    max-width: 90%;
+}
+
 .title-bar {
     background-color: #010082;
     color: #fff;

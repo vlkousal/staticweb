@@ -9,15 +9,22 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 	<body>
-		<div class="windows-95-window">
+		<div class="windows-95-window" id="gosling-window">
 			<div class="title-bar">
 				<div class="window-title">Welcome</div>
 				<div class="window-buttons">
-					<button class="window-button-close">X</button>
+					<button class="window-button-close" onclick="closeGosling()">X</button>
+					<script>
+						function closeGosling() {
+							document.getElementById("gosling-window").hidden = true;
+							console.log("XDDDD");
+							console.log(document.getElementById("me"));
+						}
+					</script>
 				</div>
 			</div>
 			<div class="content">
-				<img src="me.jpg" alt="literally me">
+				<img src="me.jpg" alt="literally me" class="gosling" id="me">
 			</div>
 		</div>
 
