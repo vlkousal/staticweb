@@ -44,14 +44,12 @@ body {
     padding: 8px;
     text-align: right;
 
-    border: 2px solid #ffffff;
     border-radius: 5px;
     font-weight: bold;
 
-    border-right: 2px solid #ffffff;
-    border-bottom: 2px solid #ffffff;
-    border-top: 2px solid #80807e;
-    border-left: 2px solid #80807e;
+    border: 2px solid #80807e;
+    border-right-color: #ffffff;
+    border-bottom-color: #ffffff;
 }
 
 .start-button {
@@ -60,7 +58,7 @@ body {
     font-weight: bold;
     height: 35px;
     width: 50px;
-    margin: 2.5px 5px;
+    margin: 2px;
     border-left: 2px solid #fffdfe;
     border-top: 2px solid #fffdfe;
     border-right: 2px solid #010100;
@@ -70,10 +68,8 @@ body {
 }
 
 .windows-95-window {
-    width: 30vw;
-    height: 64vh;
-    max-width: 100%;
-    max-height: calc(100vh - 40px);
+    width: 35vw;
+    min-height: 50vh;
     background-color: #c0c0c0;
     border: 2px solid #fcfdff;
     border-radius: 5px;
