@@ -37,6 +37,8 @@
 		<div class="bottom-panel">
 			<button class="start-button" onclick="toggleStartMenu()">Start</button>
 			<script>
+				let startMenu = document.getElementById("start-menu");
+				startMenu.hidden = true;
 				function toggleStartMenu() {
 					let startMenu = document.getElementById("start-menu");
 					if(startMenu.hidden) {
