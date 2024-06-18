@@ -43,9 +43,15 @@ body {
     background-color: #c0c0c0;
     padding: 8px;
     text-align: right;
+
     border: 2px solid #ffffff;
     border-radius: 5px;
     font-weight: bold;
+
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    border-top: 2px solid #80807e;
+    border-left: 2px solid #80807e;
 }
 
 .start-button {
@@ -55,7 +61,10 @@ body {
     height: 35px;
     width: 50px;
     margin: 2.5px 5px;
-    border: 2px solid #0c0c0c;
+    border-left: 2px solid #fffdfe;
+    border-top: 2px solid #fffdfe;
+    border-right: 2px solid #010100;
+    border-bottom: 2px solid #010100;
     font-size: 16px;
     cursor: url('cursors/hand.png'), default;
 }
