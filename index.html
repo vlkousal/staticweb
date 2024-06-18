@@ -28,10 +28,25 @@
 			</div>
 		</div>
 
+		<!-- START MENU -->
+		<div class="start-menu" id="start-menu">
+			<p style="text-align: center">TBD</p>
+		</div>
+
 
 		<div class="bottom-panel">
-			<button class="start-button">Start</button>
-			<div class="time-container" id="time-container">:) dobry den prosim</div>
+			<button class="start-button" onclick="toggleStartMenu()">Start</button>
+			<script>
+				function toggleStartMenu() {
+					let startMenu = document.getElementById("start-menu");
+					if(startMenu.hidden) {
+						startMenu.hidden = false;
+						return;
+					}
+					startMenu.hidden = true;
+				}
+			</script>
+			<div class="time-container" id="time-container">4:20 PM</div>
 			<script src="current_time.js"></script>
 		</div>
 

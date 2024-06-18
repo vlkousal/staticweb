@@ -130,3 +130,11 @@ body {
 .content {
     padding: 10px;
 }
+
+.start-menu {
+    position: absolute;
+    width: 20vw;
+    height: 40vh;
+    bottom: 2%;
+    background-color: #b6bbb7;
+}
