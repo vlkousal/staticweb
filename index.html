@@ -29,10 +29,14 @@
 		<!-- START MENU -->
 		<div class="start-menu" id="start-menu">
 			<div class="blue-stripe">
-				<p class="last-name">Kousal</p> <p class="first-name">Vladimír</p>
+				<p class="last-name">Kousal</p>
+				<p class="first-name">Vladimír</p>
 			</div>
 			<div class="welcome-window-start">
-				<button onclick="onWelcomeMenuClick()"><img src="welcome_icon.png"> Welcome window</button>
+					<button onclick="onWelcomeMenuClick()">
+						<img src="welcome_icon.png">
+						<p>Welcome window</p>
+					</button>
 				<script>
 					function onWelcomeMenuClick() {
 						let welcomeWindow = document.getElementById("gosling-window");
@@ -71,6 +75,23 @@
 			gtag('js', new Date());
 
 			gtag('config', 'G-Q7QZS1W0VF');
+		</script>
+
+		<script>
+			function checkOverflow() {
+				console.log("XD");
+				const container = document.getElementById('container');
+				const content = document.getElementById('content');
+
+				if (content.scrollHeight > container.clientHeight || content.scrollWidth > container.clientWidth) {
+					content.style.visibility = 'hidden';
+				} else {
+					content.style.visibility = 'visible';
+				}
+			}
+
+			window.addEventListener('resize', checkOverflow);
+			document.addEventListener('DOMContentLoaded', checkOverflow);
 		</script>
 	</body>
 </html>

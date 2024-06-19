@@ -68,8 +68,13 @@ body {
 }
 
 .windows-95-window {
-    width: 35vw;
-    min-height: 50vh;
+    max-height: 80vh;
+    max-width: 55vw;
+
+    height: auto;
+
+    overflow: hidden;
+
     background-color: #c0c0c0;
     border: 2px solid #fcfdff;
     border-radius: 5px;
@@ -81,15 +86,13 @@ body {
 }
 
 .windows-95-window img {
-    max-width: 100%;
-    max-height: 100%;
+    margin-left: 5%;
     display: block;
-}
 
-.gosling {
     max-height: 50%;
     max-width: 90%;
 }
+
 
 .title-bar {
     background-color: #010082;
@@ -138,14 +141,16 @@ body {
 
 .start-menu {
     position: absolute;
-    width: 15vw;
-    height: 40vh;
+    min-height: 50%;
     bottom: 2%;
     background-color: #cccccc;
     border-top: 2px solid #ffffff;
     border-left: 2px solid #ffffff;
     border-right: 2px solid #666666;
     border-bottom: 2px solid #666666;
+
+
+    width: 20%;
 }
 
 .blue-stripe {
@@ -180,10 +185,9 @@ body {
 }
 
 .welcome-window-start {
-    margin-top: 1vw;
-    margin-left: 3.5vw;
+    float: left;
     background-color: #cccccc;
-    width: 100%;
+    padding-right: 100%;
 }
 
 .welcome-window-start button {
@@ -193,4 +197,36 @@ body {
     border: none;
     background: none;
     font-family: 'win95', monospace;
+    box-sizing: border-box;
+    display: flex;
+    width: calc(100% - 2.9vw); /* Adjust the width to account for the padding */
+    margin-left: 2.9vw; /* Adjust this value to cut the width from the left side */
+    margin-top: 2%;
+    overflow: hidden;
+
+    max-width: 200%;
+
+}
+
+.welcome-window-start p {
+    margin: 0;
+    font-size: 2vh;
+}
+
+.welcome-window-start p:first-letter {
+    text-decoration: underline;
+}
+
+.welcome-window-start img {
+    margin-right: 0.5em;
+    margin-left: 7%;
+
+    height: auto;
+    width: auto;
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 14px; /* Minimum font size */
+    }
 }
