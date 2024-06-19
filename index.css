@@ -138,8 +138,59 @@ body {
 
 .start-menu {
     position: absolute;
-    width: 20vw;
+    width: 15vw;
     height: 40vh;
     bottom: 2%;
-    background-color: #b6bbb7;
+    background-color: #cccccc;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #666666;
+    border-bottom: 2px solid #666666;
+}
+
+.blue-stripe {
+    position: absolute;
+    width: 3vw;
+    height: 100%;
+    background-color: #666666;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.blue-stripe p {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    transform-origin: bottom;
+    white-space: nowrap;
+    font-size: 2vw;
+    max-height: 100%;
+}
+
+.first-name {
+    margin-bottom: 10vw;
+    color: #cccccc;
+    font-weight: bold;
+}
+
+.last-name {
+    color: #ffffff;
+}
+
+.welcome-window-start {
+    margin-top: 1vw;
+    margin-left: 3.5vw;
+    background-color: #cccccc;
+    width: 100%;
+}
+
+.welcome-window-start button {
+    white-space: nowrap;
+    font-size: 1vw;
+    position: absolute;
+    border: none;
+    background: none;
+    font-family: 'win95', monospace;
 }

@@ -17,8 +17,6 @@
 					<script>
 						function closeGosling() {
 							document.getElementById("gosling-window").hidden = true;
-							console.log("XDDDD");
-							console.log(document.getElementById("me"));
 						}
 					</script>
 				</div>
@@ -30,7 +28,20 @@
 
 		<!-- START MENU -->
 		<div class="start-menu" id="start-menu">
-			<p style="text-align: center">TBD</p>
+			<div class="blue-stripe">
+				<p class="last-name">Kousal</p> <p class="first-name">Vladimír</p>
+			</div>
+			<div class="welcome-window-start">
+				<button onclick="onWelcomeMenuClick()"><img src="welcome_icon.png"> Welcome window</button>
+				<script>
+					function onWelcomeMenuClick() {
+						let welcomeWindow = document.getElementById("gosling-window");
+						let startMenu = document.getElementById("start-menu");
+						welcomeWindow.hidden = false;
+						startMenu.hidden = true;
+					}
+				</script>
+			</div>
 		</div>
 
 
