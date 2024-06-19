@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="index.css">
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="button_logic.js"></script>
 	</head>
 	<body>
 		<div class="windows-95-window" id="gosling-window">
@@ -37,32 +38,16 @@
 						<img src="welcome_icon.png">
 						<p>Welcome window</p>
 					</button>
-				<script>
-					function onWelcomeMenuClick() {
-						let welcomeWindow = document.getElementById("gosling-window");
-						let startMenu = document.getElementById("start-menu");
-						welcomeWindow.hidden = false;
-						startMenu.hidden = true;
-					}
-				</script>
 			</div>
+			<script>
+				let startMenu = document.getElementById("start-menu");
+				startMenu.hidden = true;
+			</script>
 		</div>
 
 
 		<div class="bottom-panel">
 			<button class="start-button" onclick="toggleStartMenu()">Start</button>
-			<script>
-				let startMenu = document.getElementById("start-menu");
-				startMenu.hidden = true;
-				function toggleStartMenu() {
-					let startMenu = document.getElementById("start-menu");
-					if(startMenu.hidden) {
-						startMenu.hidden = false;
-						return;
-					}
-					startMenu.hidden = true;
-				}
-			</script>
 			<div class="time-container" id="time-container">4:20 PM</div>
 			<script src="current_time.js"></script>
 		</div>
@@ -75,23 +60,6 @@
 			gtag('js', new Date());
 
 			gtag('config', 'G-Q7QZS1W0VF');
-		</script>
-
-		<script>
-			function checkOverflow() {
-				console.log("XD");
-				const container = document.getElementById('container');
-				const content = document.getElementById('content');
-
-				if (content.scrollHeight > container.clientHeight || content.scrollWidth > container.clientWidth) {
-					content.style.visibility = 'hidden';
-				} else {
-					content.style.visibility = 'visible';
-				}
-			}
-
-			window.addEventListener('resize', checkOverflow);
-			document.addEventListener('DOMContentLoaded', checkOverflow);
 		</script>
 	</body>
 </html>
