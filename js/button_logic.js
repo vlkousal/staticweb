@@ -8,10 +8,13 @@ function toggleStartMenu() {
 }
 
 function onWelcomeMenuClick() {
-	let welcomeWindow = document.getElementById("gosling-window");
-	let startMenu = document.getElementById("start-menu");
-	welcomeWindow.hidden = false;
-	startMenu.hidden = true;
+	document.getElementById("gosling-window").hidden = false;
+	document.getElementById("start-menu").hidden = true;
+}
+
+function onMapMenuClick() {
+	document.getElementById('window').hidden = false;
+	document.getElementById('start-menu').hidden = true;
 }
 
 function closeGosling() {
