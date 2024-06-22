@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Welcome</title>
+	<link rel="stylesheet" href="countries.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="button_logic.js"></script>
+</head>
+<body>
+<div class="windows-95-window" id="window">
+	<div class="title-bar">
+		<div class="window-title">World map</div>
+		<div class="window-buttons">
+			<button class="window-button-close"
+			        onclick="document.getElementById('window').hidden = true">
+				X
+			</button>
+		</div>
+	</div>
+	<img src="map1.png" alt="World map">
+</div>
+
+	<!-- START MENU -->
+	<div class="start-menu" id="start-menu">
+		<div class="blue-stripe">
+			<p class="last-name">Kousal</p>
+			<p class="first-name">Vladimír</p>
+		</div>
+		<div class="welcome-window-start">
+			<button onclick="window.location.href='index.html'">
+				<img src="welcome_icon.png">
+				<p> Welcome window</p>
+			</button>
+		</div>
+		<br> <br>
+
+		<div class="countries-start">
+			<button onclick="window.location.href='countries.html'">
+				<img src="globe_icon.png">
+				<p> World map</p>
+			</button>
+		</div>
+
+		<script>
+			let startMenu = document.getElementById("start-menu");
+			startMenu.hidden = true;
+		</script>
+	</div>
+
+
+	<div class="bottom-panel">
+		<button class="start-button" onclick="toggleStartMenu()">Start</button>
+		<div class="time-container" id="time-container">4:20 PM</div>
+		<script src="current_time.js"></script>
+	</div>
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7QZS1W0VF"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-Q7QZS1W0VF');
+	</script>
+</body>
+</html>

@@ -75,17 +75,15 @@ body {
     position: absolute;
     top: 10px;
     left: 50%;
-    bottom: 10%;
+    height: auto;
     transform: translateX(-50%);
+    max-width: 1365px;
 }
 
 .windows-95-window img {
-    margin-left: 5%;
-    display: block;
-    max-height: 50%;
-    max-width: 90%;
+    width: 100%;
+    object-fit: cover;
 }
-
 
 .title-bar {
     background-color: #010082;
@@ -209,13 +207,6 @@ body {
     margin-left: 7%;
     height: auto;
     width: auto;
-}
-
-.content {
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    display: flex;
 }
 
 .countries-start {

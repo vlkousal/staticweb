@@ -38,11 +38,20 @@
 				<p class="first-name">Vladimír</p>
 			</div>
 			<div class="welcome-window-start">
-					<button onclick="onWelcomeMenuClick()">
-						<img src="welcome_icon.png">
-						<p>Welcome window</p>
-					</button>
+				<button onclick="onWelcomeMenuClick()">
+					<img src="welcome_icon.png">
+					<p> Welcome window</p>
+				</button>
 			</div>
+			<br> <br>
+
+			<div class="countries-start">
+				<button onclick="window.location.href='countries.html'">
+					<img src="globe_icon.png">
+					<p> World map</p>
+				</button>
+			</div>
+
 			<script>
 				let startMenu = document.getElementById("start-menu");
 				startMenu.hidden = true;
