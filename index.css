@@ -43,10 +43,8 @@ body {
     background-color: #c0c0c0;
     padding: 8px;
     text-align: right;
-
     border-radius: 5px;
     font-weight: bold;
-
     border: 2px solid #80807e;
     border-right-color: #ffffff;
     border-bottom-color: #ffffff;
@@ -68,27 +66,22 @@ body {
 }
 
 .windows-95-window {
-    max-height: 80vh;
-    max-width: 55vw;
-
-    height: auto;
-
+    width: 95%;
     overflow: hidden;
-
     background-color: #c0c0c0;
     border: 2px solid #fcfdff;
     border-radius: 5px;
     box-shadow: 0 0 0 1px #000;
     position: absolute;
-    top: 10%;
+    top: 10px;
     left: 50%;
+    bottom: 10%;
     transform: translateX(-50%);
 }
 
 .windows-95-window img {
     margin-left: 5%;
     display: block;
-
     max-height: 50%;
     max-width: 90%;
 }
@@ -135,20 +128,14 @@ body {
     background-color: #bec3c7;
 }
 
-.content {
-    padding: 10px;
-}
-
 .start-menu {
     position: absolute;
     min-height: 48%;
     bottom: 2%;
     background-color: #cccccc;
-
     width: 45%;
     max-width: 400px;
     min-width: 138px;
-
     border-top: 2px solid #ffffff;
     border-left: 2px solid #ffffff;
     border-right: 2px solid #666666;
@@ -164,7 +151,6 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-
     min-width: 10%;
     max-width: 50px;
 }
@@ -207,9 +193,7 @@ body {
     margin-left: 2.9vw; /* Adjust this value to cut the width from the left side */
     margin-top: 2%;
     overflow: hidden;
-
     max-width: 200%;
-
 }
 
 .welcome-window-start p {
@@ -222,15 +206,14 @@ body {
 }
 
 .welcome-window-start img {
-    margin-right: 0.5em;
     margin-left: 7%;
-
     height: auto;
     width: auto;
 }
 
-@media (max-width: 600px) {
-    body {
-        font-size: 14px; /* Minimum font size */
-    }
+.content {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }

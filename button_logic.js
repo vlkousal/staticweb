@@ -13,3 +13,7 @@ function onWelcomeMenuClick() {
 	welcomeWindow.hidden = false;
 	startMenu.hidden = true;
 }
+
+function closeGosling() {
+	document.getElementById("gosling-window").hidden = true;
+}
