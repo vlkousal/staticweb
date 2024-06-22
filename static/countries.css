@@ -6,8 +6,8 @@
 }
 
 html, body {
-    overflow: hidden; /* Disable scrolling */
-    height: 100%; /* Ensure the body takes up the full height */
+    overflow: hidden;
+    height: 100%;
     margin: 0;
     padding: 0;
     cursor: url('../cursors/arrow.png'), auto;
@@ -78,6 +78,7 @@ body {
     height: auto;
     transform: translateX(-50%);
     max-width: 1365px;
+    margin-bottom: 10%;
 }
 
 .windows-95-window img {
@@ -187,8 +188,8 @@ body {
     font-family: 'win95', monospace;
     box-sizing: border-box;
     display: flex;
-    width: calc(100% - 2.9vw); /* Adjust the width to account for the padding */
-    margin-left: 2.9vw; /* Adjust this value to cut the width from the left side */
+    width: calc(100% - 2.9vw);
+    margin-left: 2.9vw;
     margin-top: 2%;
     overflow: hidden;
     max-width: 200%;
@@ -224,8 +225,8 @@ body {
     font-family: 'win95', monospace;
     box-sizing: border-box;
     display: flex;
-    width: calc(100% - 2.9vw); /* Adjust the width to account for the padding */
-    margin-left: 2.9vw; /* Adjust this value to cut the width from the left side */
+    width: calc(100% - 2.9vw);
+    margin-left: 2.9vw;
     margin-top: 2%;
     overflow: hidden;
     max-width: 200%;
