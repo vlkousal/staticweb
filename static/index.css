@@ -16,9 +16,6 @@ html, body {
 body {
     background-color: #007f82;
     font-family: 'win95', sans-serif;
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE 10+ */
     user-select: none; /* Standard syntax */
 }
 
@@ -179,6 +176,7 @@ body {
     float: left;
     background-color: #cccccc;
     padding-right: 100%;
+    cursor: url('../cursors/hand.png'), default;
 }
 
 .welcome-window-start button {
@@ -195,6 +193,7 @@ body {
     margin-top: 2%;
     overflow: hidden;
     max-width: 200%;
+    cursor: url('../cursors/hand.png'), default;
 }
 
 .welcome-window-start p {
@@ -255,3 +254,4 @@ body {
     height: auto;
     width: auto;
 }
+
