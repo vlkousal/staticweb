@@ -1,4 +1,3 @@
-
 function updateTime() {
 	const timeContainer = document.getElementById('time-container');
 	const now = new Date();

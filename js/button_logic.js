@@ -7,16 +7,21 @@ function toggleStartMenu() {
 	startMenu.hidden = true;
 }
 
-function onWelcomeMenuClick() {
-	document.getElementById("gosling-window").hidden = false;
+function openWelcome() {
+	document.getElementById("welcome-frame").hidden = false;
 	document.getElementById("start-menu").hidden = true;
 }
 
-function onMapMenuClick() {
-	document.getElementById('window').hidden = false;
-	document.getElementById('start-menu').hidden = true;
+function openMap() {
+	document.getElementById("map-frame").hidden = false;
+	document.getElementById("start-menu").hidden = true;
 }
 
-function closeGosling() {
-	document.getElementById("gosling-window").hidden = true;
+function closeWelcome() {
+	document.getElementById("welcome-frame").hidden = true;
+}
+
+function closeMap() {
+	document.getElementById("map-frame").hidden = true;
+
 }

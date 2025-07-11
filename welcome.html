@@ -1,0 +1,33 @@
+<head>
+  <link rel="stylesheet" href="static/index.css">
+  <script src="js/window-move.js"></script>
+  <title>Welcome</title>
+</head>
+
+<div class="windows-95-window" id="welcome-window">
+  <div class="title-bar">
+    <div class="window-title">Welcome</div>
+    <div class="window-buttons">
+      <button class="window-button-close"
+              onclick="window.parent.postMessage('closeWelcome', '*'); ">
+        X</button>
+    </div>
+  </div>
+  <div class="content">
+    <div class="gifs">
+      <h1>Vladimír Kousal</h1>
+      <p>a Computer Science and Chinese Studies student from Brno, Czechia</p>
+      <a href="https://github.com/vlkousal" target="_blank">GitHub</a>
+      <p>This page is still being built, but feel free to explore what is here.</p>
+      <p>You can also visit my friends:</p>
+      <a href="http://dominik.zone" target="_blank">dominik.zone</a>
+      <a href="http://zeftax.eu" target="_blank">zeftax.eu</a>
+      <a href="http://rekt.su" target="_blank">rekt.su</a>
+      <img src="static/img/frog.gif">
+    </div>
+  </div>
+</div>
+
+<script>
+  initWindowMove();
+</script>

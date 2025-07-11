@@ -1,79 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-	    <meta charset="UTF-8">
-	    <title>Welcome</title>
-		<link rel="stylesheet" href="static/index.css">
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<script src="js/button_logic.js"></script>
-	</head>
-	<body>
-		<div class="windows-95-window" id="gosling-window">
-			<div class="title-bar">
-				<div class="window-title">Welcome</div>
-				<div class="window-buttons">
-					<button class="window-button-close" onclick="closeGosling()">X</button>
-				</div>
-			</div>
-			<div class="content">
-				<div class="gifs">
-					<h1>Vladimír Kousal</h1>
-					<p>a Computer Science and Chinese Studies student from Brno, Czechia</p>
-					<a href="https://github.com/vlkousal" target="_blank">GitHub</a>
-					<p>This page is still being built, but feel free to explore what is here.</p>
-					<p>You can also visit my friends:</p>
-					<a href="http://dominik.zone" target="_blank">dominik.zone</a>
-					<a href="http://zeftax.eu" target="_blank">zeftax.eu</a>
-					<a href="http://rekt.su" target="_blank">rekt.su</a>
-					<img src="static/img/frog.gif">
-				</div>
-				<!-- <img src="me.jpg" alt="literally me" class="gosling" id="me"> -->
-			</div>
-		</div>
+<head>
+	<meta charset="UTF-8">
+	<title>Welcome</title>
+	<link rel="stylesheet" href="static/index.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="js/button_logic.js"></script>
+</head>
 
-		<!-- START MENU -->
-		<div class="start-menu" id="start-menu">
-			<div class="blue-stripe">
-				<p class="last-name">Kousal</p>
-				<p class="first-name">Vladimír</p>
-			</div>
-			<div class="welcome-window-start">
-				<button onclick="onWelcomeMenuClick()">
-					<img src="static/img/welcome_icon.png">
-					<p> Welcome window</p>
-				</button>
-			</div>
-			<br> <br>
+<body>
+    <iframe id="welcome-frame" src="welcome.html"></iframe>
+    <iframe id="map-frame" src="countries.html"></iframe>
 
-			<div class="countries-start">
-				<button onclick="window.location.href='countries.html'">
-					<img src="static/img/globe_icon.png">
-					<p> World map</p>
-				</button>
-			</div>
+    <!-- START MENU -->
+    <div class="start-menu" id="start-menu">
+        <div class="blue-stripe">
+            <p class="last-name">Kousal</p>
+            <p class="first-name">Vladimír</p>
+        </div>
+        <div class="welcome-window-start">
+            <button onclick="openWelcome()">
+                <img src="static/img/welcome_icon.png">
+                <p> Welcome window</p>
+            </button>
+        </div>
+        <br> <br>
 
-			<script>
-				let startMenu = document.getElementById("start-menu");
-				startMenu.hidden = true;
-			</script>
-		</div>
+        <div class="countries-start">
+            <button onclick="openMap()">
+                <img src="static/img/globe_icon.png">
+                <p> World map</p>
+            </button>
+        </div>
+
+        <script>
+            let startMenu = document.getElementById("start-menu");
+            startMenu.hidden = true;
+
+            document.getElementById("map-frame").hidden = true;
+        </script>
+    </div>
 
 
-		<div class="bottom-panel">
-			<button class="start-button" onclick="toggleStartMenu()">Start</button>
-			<div class="time-container" id="time-container">4:20 PM</div>
-			<script src="js/current_time.js"></script>
-		</div>
+    <div class="bottom-panel">
+        <button class="start-button" onclick="toggleStartMenu()">Start</button>
+        <div class="time-container" id="time-container">4:20 PM</div>
+        <script src="js/current_time.js"></script>
+    </div>
 
-		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7QZS1W0VF"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7QZS1W0VF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-			gtag('config', 'G-Q7QZS1W0VF');
-		</script>
-	</body>
-</html>
+        gtag('config', 'G-Q7QZS1W0VF');
+    </script>
+
+    <!-- listener -->
+    <script>
+        window.addEventListener("message", (event) => {
+            if (event.data === "closeWelcome") {
+                closeWelcome();
+            }
+
+            if(event.data === "closeMap") {
+                closeMap();
+            }
+        });
+
+    </script>
+</body>
