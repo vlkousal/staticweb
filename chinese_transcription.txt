@@ -16,7 +16,7 @@ bian,pien,pien
 biao,piao,piao
 bie,pie,pieh
 bin,pin,pin
-binq,pinq,ping
+bing,ping,ping
 bo,po,po
 bu,pu,pu
 ca,ccha,ts'a
