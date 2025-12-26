@@ -10,6 +10,7 @@
 <body>
     <iframe id="welcome-frame" src="welcome.html"></iframe>
     <iframe id="map-frame" src="countries.html"></iframe>
+    <iframe id="trainer-frame" src="transcription_trainer.html"></iframe>
 
     <!-- START MENU -->
     <div class="start-menu" id="start-menu">
@@ -32,11 +33,18 @@
             </button>
         </div>
 
+        <div class="transcription-trainer-start">
+            <button onclick="openTrainer()">
+                <img src="static/img/transcription_icon.png">
+                <p> Transcription trainer</p>
+            </button>
+        </div>
+
         <script>
             let startMenu = document.getElementById("start-menu");
             startMenu.hidden = true;
-
             document.getElementById("map-frame").hidden = true;
+            document.getElementById("trainer-frame").hidden = true;
         </script>
     </div>
 
@@ -66,6 +74,10 @@
 
             if(event.data === "closeMap") {
                 closeMap();
+            }
+
+            if(event.data === "closeTrainer") {
+                closeTrainer();
             }
         });
 

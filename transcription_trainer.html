@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinese Transcription Trainer</title>
+    <link rel="stylesheet" href="static/chinese_transcription.css">
+</head>
+<body>
+<div class="windows-95-window">
+    <div class="title-bar">
+        <div class="window-title">
+            <span>Chinese Transcription Trainer</span>
+        </div>
+        <div class="window-buttons">
+            <div class="window-button" onclick="window.parent.postMessage('closeTrainer', '*');">X</div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill">0%</div>
+            </div>
+        </div>
+
+        <div class="stats-panel">
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-value" id="remainingCount">0</div>
+                    <div class="stat-label">Syllables left</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="correctCount">0</div>
+                    <div class="stat-label">Correct</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="successRate">0%</div>
+                    <div class="stat-label">Accuracy</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="quizSection">
+            <div class="question-panel">
+                <div class="question-type" id="questionType"></div>
+                <div class="question-text" id="questionText"></div>
+            </div>
+
+            <div class="input-panel">
+                <div style="display: flex; gap: 5px; align-items: center;">
+                    <input type="text" class="win95-input" id="answerInput" placeholder="Enter your answer" autocomplete="off">
+                    <button class="win95-button" id="umlautBtn" style="flex-shrink: 0; width: 40px; padding: 8px;">ü</button>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="win95-button" id="submitBtn">Check</button>
+                <button class="win95-button" id="skipBtn">Skip</button>
+            </div>
+        </div>
+
+        <div class="completion-dialog" id="completionSection">
+            <h2>Congratulations!</h2>
+            <div class="completion-stats">
+                <div class="completion-stat">
+                    <strong>Answers in total:</strong> <span id="finalTotal">0</span>
+                </div>
+                <div class="completion-stat">
+                    <strong>Accuracy:</strong> <span id="finalPercentage">0%</span>
+                </div>
+            </div>
+            <button class="win95-button" id="restartBtn" style="width: 150px;">Try again</button>
+        </div>
+    </div>
+
+    <div class="status-bar">
+        <a href="https://www.cinstina.cz/article.html?page=b6ca51787dff6e030dca936e2170a05f" target="_blank">Source</a>
+    </div>
+</div>
+
+
+<script>
+    class TranscriptionTrainer {
+        async loadTranscriptionData() {
+            try {
+                const response = await fetch("chinese_transcription.txt");
+                if (!response.ok) {
+                    throw new Error("Couldn't load data");
+                }
+                return await response.text();
+            } catch (error) {
+                console.error("Chyba při načítání dat:", error);
+                alert("Could not load data. Make sure the file chinese_transcription.txt is in the same folder as the template.");
+                return null;
+            }
+        }
+
+        async init() {
+            const transcriptionData = await this.loadTranscriptionData();
+            if (!transcriptionData) return;
+
+            this.initializeData(transcriptionData);
+            this.setupEventListeners();
+            this.startTraining();
+        }
+        constructor() {
+            this.syllables = [];
+            this.remainingSyllables = [];
+            this.currentQuestion = null;
+            this.correctAnswers = 0;
+            this.totalAnswers = 0;
+        }
+
+        initializeData(transcriptionData) {
+            const lines = transcriptionData.trim().split("\n");
+            this.syllables = lines.map(line => {
+                const parts = line.split(",");
+                return {
+                    pinyin: parts[0],
+                    czech: parts[1],
+                    english: parts[2]
+                };
+            });
+        }
+
+        setupEventListeners() {
+            document.getElementById("submitBtn").addEventListener("click", () => this.checkAnswer());
+            document.getElementById("skipBtn").addEventListener("click", () => this.skipQuestion());
+            document.getElementById("restartBtn").addEventListener("click", () => this.restart());
+            document.getElementById("umlautBtn").addEventListener("click", () => this.insertUmlaut());
+
+            document.getElementById("answerInput").addEventListener("keypress", (e) => {
+                if (e.key === "Enter") {
+                    this.checkAnswer();
+                }
+            });
+        }
+
+        insertUmlaut() {
+            const input = document.getElementById("answerInput");
+            const cursorPos = input.selectionStart;
+            const textBefore = input.value.substring(0, cursorPos);
+            const textAfter = input.value.substring(cursorPos);
+
+            input.value = textBefore + "ü" + textAfter;
+
+            const newCursorPos = cursorPos + 1;
+            input.setSelectionRange(newCursorPos, newCursorPos);
+            input.focus();
+        }
+
+        startTraining() {
+            this.remainingSyllables = [...this.syllables];
+            this.correctAnswers = 0;
+            this.totalAnswers = 0;
+            this.updateStats();
+            this.showQuestion();
+        }
+
+        showQuestion() {
+            if (this.remainingSyllables.length === 0) {
+                this.showCompletion();
+                return;
+            }
+
+            const randomIndex = Math.floor(Math.random() * this.remainingSyllables.length);
+            const syllable = this.remainingSyllables[randomIndex];
+
+            const columns = ["pinyin", "czech", "english"];
+            const shuffled = columns.sort(() => Math.random() - 0.5);
+            const questionCol = shuffled[0];
+            const answerCol = shuffled[1];
+
+            this.currentQuestion = {
+                syllable: syllable,
+                index: randomIndex,
+                questionCol: questionCol,
+                answerCol: answerCol,
+                questionValue: syllable[questionCol],
+                correctAnswer: syllable[answerCol]
+            };
+
+            const questionTypeMap = {
+                "pinyin": "Pinyin",
+                "czech": "Czech",
+                "english": "English"
+            };
+
+            const questionPanel = document.querySelector(".question-panel");
+            const questionText = document.getElementById("questionText");
+
+            questionPanel.style.backgroundColor = "#ffffff";
+            questionText.style.color = "#000000";
+
+            document.getElementById("questionType").textContent =
+                `${questionTypeMap[questionCol]} → ${questionTypeMap[answerCol]}`;
+            questionText.textContent = this.currentQuestion.questionValue;
+            document.getElementById("answerInput").value = "";
+            document.getElementById("answerInput").focus();
+        }
+
+        checkAnswer() {
+            const userAnswer = document.getElementById("answerInput").value.trim().toLowerCase();
+            const correctAnswer = this.currentQuestion.correctAnswer.toLowerCase();
+            const questionPanel = document.querySelector(".question-panel");
+            const questionText = document.getElementById("questionText");
+
+            document.getElementById("answerInput").disabled = true;
+            document.getElementById("submitBtn").disabled = true;
+            document.getElementById("skipBtn").disabled = true;
+            document.getElementById("umlautBtn").disabled = true;
+
+            this.totalAnswers++;
+
+            if (userAnswer === correctAnswer) {
+                this.correctAnswers++;
+
+                questionPanel.style.backgroundColor = "#00ff00";
+                questionText.textContent = "Correct!";
+                questionText.style.color = "#000000";
+
+                this.remainingSyllables.splice(this.currentQuestion.index, 1);
+
+                setTimeout(() => {
+                    questionPanel.style.backgroundColor = "#ffffff";
+                    this.updateStats();
+                    this.showQuestion();
+                    document.getElementById("answerInput").disabled = false;
+                    document.getElementById("submitBtn").disabled = false;
+                    document.getElementById("skipBtn").disabled = false;
+                    document.getElementById("umlautBtn").disabled = false;
+                }, 2000);
+            } else {
+                questionPanel.style.backgroundColor = "#ff0000";
+                questionText.textContent = this.currentQuestion.correctAnswer;
+                questionText.style.color = "#ffffff";
+
+                setTimeout(() => {
+                    questionPanel.style.backgroundColor = "#ffffff";
+                    this.showQuestion();
+                    document.getElementById("answerInput").disabled = false;
+                    document.getElementById("submitBtn").disabled = false;
+                    document.getElementById("skipBtn").disabled = false;
+                    document.getElementById("umlautBtn").disabled = false;
+                }, 2000);
+            }
+        }
+
+        skipQuestion() {
+            this.showQuestion();
+        }
+
+        updateStats() {
+            const total = this.syllables.length;
+            const remaining = this.remainingSyllables.length;
+            const completed = total - remaining;
+            const progress = (completed / total) * 100;
+            const successRate = this.totalAnswers > 0
+                ? Math.round((this.correctAnswers / this.totalAnswers) * 100)
+                : 0;
+
+            document.getElementById("remainingCount").textContent = remaining;
+            document.getElementById("correctCount").textContent = this.correctAnswers;
+            document.getElementById("successRate").textContent = successRate + "%";
+
+            const progressFill = document.getElementById("progressFill");
+            progressFill.style.width = progress + "%";
+            progressFill.textContent = Math.round(progress) + "%";
+        }
+
+        showCompletion() {
+            document.getElementById("quizSection").style.display = "none";
+            document.getElementById("completionSection").style.display = "block";
+
+            const percentage = this.totalAnswers > 0
+                ? Math.round((this.correctAnswers / this.totalAnswers) * 100)
+                : 0;
+
+            document.getElementById("finalTotal").textContent = this.totalAnswers;
+            document.getElementById("finalCorrect").textContent = this.correctAnswers;
+            document.getElementById("finalPercentage").textContent = percentage + "%";
+        }
+
+        restart() {
+            document.getElementById("quizSection").style.display = "block";
+            document.getElementById("completionSection").style.display = "none";
+            this.startTraining();
+        }
+    }
+
+    window.addEventListener("DOMContentLoaded", async () => {
+        const trainer = new TranscriptionTrainer();
+        await trainer.init();
+    });
+</script>
+</body>
+</html>

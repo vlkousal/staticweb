@@ -188,12 +188,19 @@ body {
     font-family: 'win95', monospace;
     box-sizing: border-box;
     display: flex;
+    align-items: center;
     width: calc(100% - 2.9vw);
     margin-left: 2.9vw;
-    margin-top: 2%;
+    top: 2%;
+    padding: 8px 4px;
     overflow: hidden;
     max-width: 200%;
     cursor: url('../cursors/hand.png'), default;
+}
+
+.welcome-window-start button:hover {
+    background-color: #000080;
+    color: #ffffff;
 }
 
 .welcome-window-start p {
@@ -211,17 +218,22 @@ body {
     width: auto;
 }
 
-.content {
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    display: flex;
+.welcome-window-start::after {
+    content: '';
+    position: absolute;
+    left: 2.9vw;
+    right: 0;
+    bottom: -6px;
+    height: 2px;
+    border-top: 1px solid #808080;
+    border-bottom: 1px solid #ffffff;
 }
 
 .countries-start {
     float: left;
     background-color: #cccccc;
     padding-right: 100%;
+    cursor: url('../cursors/hand.png'), default;
 }
 
 .countries-start button {
@@ -233,11 +245,19 @@ body {
     font-family: 'win95', monospace;
     box-sizing: border-box;
     display: flex;
+    align-items: center;
     width: calc(100% - 2.9vw);
     margin-left: 2.9vw;
-    margin-top: 2%;
+    top: 12%;
+    padding: 8px 4px;
     overflow: hidden;
     max-width: 200%;
+    cursor: url('../cursors/hand.png'), default;
+}
+
+.countries-start button:hover {
+    background-color: #000080;
+    color: #ffffff;
 }
 
 .countries-start p {
@@ -253,6 +273,70 @@ body {
     margin-left: 7%;
     height: auto;
     width: auto;
+}
+
+.countries-start::after {
+    content: '';
+    position: absolute;
+    left: 2.9vw;
+    right: 0;
+    bottom: -6px;
+    height: 2px;
+    border-top: 1px solid #808080;
+    border-bottom: 1px solid #ffffff;
+}
+
+.transcription-trainer-start {
+    float: left;
+    background-color: #cccccc;
+    padding-right: 100%;
+    cursor: url('../cursors/hand.png'), default;
+}
+
+.transcription-trainer-start button {
+    white-space: nowrap;
+    font-size: 2vw;
+    position: absolute;
+    border: none;
+    background: none;
+    font-family: 'win95', monospace;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    width: calc(100% - 2.9vw);
+    margin-left: 2.9vw;
+    top: 22%;
+    padding: 8px 4px;
+    overflow: hidden;
+    max-width: 200%;
+    cursor: url('../cursors/hand.png'), default;
+}
+
+.transcription-trainer-start button:hover {
+    background-color: #000080;
+    color: #ffffff;
+}
+
+.transcription-trainer-start p {
+    margin: 0;
+    font-size: 2vh;
+}
+
+.transcription-trainer-start p:first-letter {
+    text-decoration: underline;
+}
+
+.transcription-trainer-start img {
+    margin-left: 7%;
+    height: auto;
+    width: auto;
+}
+
+.content {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
 
 iframe {
