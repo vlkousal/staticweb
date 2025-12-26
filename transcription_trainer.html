@@ -241,6 +241,8 @@
                     document.getElementById("submitBtn").disabled = false;
                     document.getElementById("skipBtn").disabled = false;
                     document.getElementById("umlautBtn").disabled = false;
+                    // NOVÉ: Automatické zaměření inputu po správné odpovědi
+                    document.getElementById("answerInput").focus();
                 }, 2000);
             } else {
                 questionPanel.style.backgroundColor = "#ff0000";
@@ -254,12 +256,16 @@
                     document.getElementById("submitBtn").disabled = false;
                     document.getElementById("skipBtn").disabled = false;
                     document.getElementById("umlautBtn").disabled = false;
+                    // NOVÉ: Automatické zaměření inputu po špatné odpovědi
+                    document.getElementById("answerInput").focus();
                 }, 2000);
             }
         }
 
         skipQuestion() {
             this.showQuestion();
+            // NOVÉ: Automatické zaměření inputu po skipnutí
+            document.getElementById("answerInput").focus();
         }
 
         updateStats() {
